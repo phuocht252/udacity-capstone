@@ -11,6 +11,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+"optionalDependencies": {
+    "fsevents": "*"
+ },
   "private": true,
   "dependencies": {
     "@angular/common": "^8.2.14",
