@@ -15,16 +15,17 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t udagram-api-user ./api-user
-  - docker tag udagram-api-user phuocht25292/udagram-api-user:v10
 
-  - docker build -t udagram-api-feed ./api-feed
-  - docker tag udagram-api-feed phuocht25292/udagram-api-feed:v10
-
-  - docker build -t udagram-frontend ./frontend
+  - docker build --no-cache -t udagram-frontend ./frontend
   - docker tag udagram-frontend phuocht25292/udagram-frontend:v10
 
-  - docker build -t udagram-reverseproxy ./reverseproxy/
+  - docker build --no-cache -t udagram-api-user ./api-user
+  - docker tag udagram-api-user phuocht25292/udagram-api-user:v10
+
+  - docker build --no-cache -t udagram-api-feed ./api-feed
+  - docker tag udagram-api-feed phuocht25292/udagram-api-feed:v10
+
+  - docker build --no-cache -t udagram-reverseproxy ./reverseproxy/
   - docker tag udagram-reverseproxy phuocht25292/udagram-reverseproxy:v10
 
 after_success:
@@ -33,3 +34,4 @@ after_success:
   - docker push phuocht25292/udagram-api-feed:v10
   - docker push phuocht25292/udagram-frontend:v10
   - docker push phuocht25292/udagram-reverseproxy:v10
+
