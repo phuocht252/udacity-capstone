@@ -21,7 +21,7 @@ script:
   - docker build -t udagram-api-feed ./api-feed
   - docker tag udagram-api-feed phuocht25292/udagram-api-feed:v10
 
-  - docker build -t udagram-user ./frontend
+  - docker build -t udagram-frontend ./frontend
   - docker tag udagram-frontend phuocht25292/udagram-frontend:v10
 
   - docker build -t udagram-reverseproxy ./reverseproxy/
